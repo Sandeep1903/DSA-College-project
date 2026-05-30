@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VisitFlow — Smart Visitor Management System. Schedule, manage, and track corporate meetings with ease. First-come first-served booking with company approval workflow.">
+  <title>VisitFlow — Smart Visitor Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+</head>
+<body>
+
+  <!-- ========== TOAST CONTAINER ========== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ========== LANDING PAGE ========== -->
+  <div class="landing" id="landingPage">
+
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav">
+      <div class="container nav__inner">
+        <a href="#" class="nav__logo" id="navLogo">
+          <span class="nav__logo-icon">📋</span>
+          VisitFlow
+        </a>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="#home" class="nav__link active" data-section="home">Home</a></li>
+          <li><a href="#features" class="nav__link" data-section="features">Features</a></li>
+          <li><a href="#how-it-works" class="nav__link" data-section="how-it-works">How It Works</a></li>
+          <li><a href="#about" class="nav__link" data-section="about">About</a></li>
+          <li><a href="#contact" class="nav__link" data-section="contact">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+          <button class="btn btn--ghost" id="loginNavBtn" onclick="openModal()">Sign In</button>
+          <button class="btn btn--primary" id="getStartedNavBtn" onclick="openModal('signup')">Get Started</button>
+          <button class="nav__hamburger" id="hamburger" onclick="toggleMobileNav()">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero__bg-grid"></div>
+      <div class="hero__bg-radial"></div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            Trusted by 500+ Companies
+          </div>
+          <h1 class="hero__title">
+            Smart Meeting<br>Management,<br><span>Simplified.</span>
+          </h1>
+          <p class="hero__desc">
+            Streamline your corporate visitor management with intelligent scheduling, first-come first-served booking, and real-time meeting summaries — all in one elegant platform.
+          </p>
+          <div class="hero__actions">
+            <button class="btn btn--primary btn--lg" onclick="openModal('signup')">
+              Start Free Trial
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button class="btn btn--outline btn--lg" onclick="scrollToSection('how-it-works')">
+              See How It Works
+            </button>
+          </div>
+          <div class="hero__stats">
+            <div>
+              <div class="hero__stat-num">2,400+</div>
+              <div class="hero__stat-label">Meetings Managed</div>
+            </div>
+            <div>
+              <div class="hero__stat-num">98%</div>
+              <div class="hero__stat-label">On-Time Rate</div>
+            </div>
+            <div>
+              <div class="hero__stat-num">4.9★</div>
+              <div class="hero__stat-label">User Rating</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__image">
+          <img src="assets/hero.png" alt="Modern meeting room" id="heroImg">
+          <div class="hero__image-float hero__image-float--1">
+            <div class="hero__float-icon hero__float-icon--green">✓</div>
+            <div class="hero__float-text">
+              <strong>Meeting Confirmed</strong>
+              <small>Room A · 10:00 AM</small>
+            </div>
+          </div>
+          <div class="hero__image-float hero__image-float--2">
+            <div class="hero__float-icon hero__float-icon--blue">📊</div>
+            <div class="hero__float-text">
+              <strong>3 Slots Available</strong>
+              <small>Today, Apr 21</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section section--gray" id="features">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__tag">✦ Features</div>
+          <h2 class="section__title">Everything You Need to Manage Visits</h2>
+          <p class="section__desc">From scheduling to summaries, VisitFlow handles your entire meeting lifecycle with precision and elegance.</p>
+        </div>
+        <div class="features__grid">
+          <div class="feature-card reveal">
+            <div class="feature-card__icon feature-card__icon--blue">📅</div>
+            <h3 class="feature-card__title">Smart Scheduling</h3>
+            <p class="feature-card__desc">Book meetings with intelligent slot management. First-come first-served ensures fair allocation for all visitors.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon feature-card__icon--green">✅</div>
+            <h3 class="feature-card__title">Company Approval</h3>
+            <p class="feature-card__desc">Every booking request goes through company approval. Get venue and time confirmation once your request is accepted.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon feature-card__icon--orange">📝</div>
+            <h3 class="feature-card__title">Meeting Summaries</h3>
+            <p class="feature-card__desc">Auto-generated summaries capture key discussion points, action items, and decisions made in every meeting.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon feature-card__icon--purple">🔄</div>
+            <h3 class="feature-card__title">Shift Suggestions</h3>
+            <p class="feature-card__desc">Intelligent system suggests alternative time slots when your preferred timing conflicts with existing bookings.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon feature-card__icon--info">📊</div>
+            <h3 class="feature-card__title">Meeting History</h3>
+            <p class="feature-card__desc">Complete audit trail of all past meetings with searchable history, analytics, and downloadable reports.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-card__icon feature-card__icon--red">🔔</div>
+            <h3 class="feature-card__title">Real-time Notifications</h3>
+            <p class="feature-card__desc">Instant alerts for booking confirmations, schedule changes, upcoming meetings, and approval requests.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__tag">✦ How It Works</div>
+          <h2 class="section__title">Get Started in 4 Simple Steps</h2>
+          <p class="section__desc">From sign-up to your first meeting — we've made the process seamless and intuitive.</p>
+        </div>
+        <div class="steps__grid">
+          <div class="step-card reveal">
+            <div class="step-card__num">1</div>
+            <h3 class="step-card__title">Create Account</h3>
+            <p class="step-card__desc">Sign up with your company email. Set up your profile and company details in minutes.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-card__num">2</div>
+            <h3 class="step-card__title">Browse Slots</h3>
+            <p class="step-card__desc">Check available meeting slots in real-time. Filter by date, time, room, or company availability.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-card__num">3</div>
+            <h3 class="step-card__title">Book & Confirm</h3>
+            <p class="step-card__desc">Submit your booking request. The company reviews and approves — you get venue and time confirmation.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-card__num">4</div>
+            <h3 class="step-card__title">Meet & Review</h3>
+            <p class="step-card__desc">Attend your meeting, then view the auto-generated summary with key points and action items.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section section--gray" id="about">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__image reveal">
+            <img src="assets/about.png" alt="Team collaboration">
+          </div>
+          <div class="about__content reveal">
+            <div class="section__tag">✦ About VisitFlow</div>
+            <h2>Built for Modern Companies That Value Time</h2>
+            <p>VisitFlow was created to solve the chaos of managing corporate visitors and meetings. Our platform brings order, fairness, and transparency to the entire meeting lifecycle.</p>
+            <ul class="about__list">
+              <li>
+                <span class="about__list-icon">✓</span>
+                First-come first-served fair booking system
+              </li>
+              <li>
+                <span class="about__list-icon">✓</span>
+                Company-controlled approval workflow
+              </li>
+              <li>
+                <span class="about__list-icon">✓</span>
+                AI-powered meeting summaries with key points
+              </li>
+              <li>
+                <span class="about__list-icon">✓</span>
+                Smart rescheduling and slot suggestions
+              </li>
+              <li>
+                <span class="about__list-icon">✓</span>
+                Complete meeting history and analytics
+              </li>
+            </ul>
+            <button class="btn btn--primary btn--lg" onclick="openModal('signup')">Get Started Today</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__tag">✦ Contact Us</div>
+          <h2 class="section__title">We'd Love to Hear From You</h2>
+          <p class="section__desc">Have questions or need a demo? Our team is ready to help you get started.</p>
+        </div>
+        <div class="contact__grid">
+          <div class="reveal">
+            <div class="contact__info-card">
+              <div class="contact__info-icon">📧</div>
+              <div class="contact__info-text">
+                <h4>Email Us</h4>
+                <p>hello@visitflow.io</p>
+              </div>
+            </div>
+            <div class="contact__info-card">
+              <div class="contact__info-icon">📞</div>
+              <div class="contact__info-text">
+                <h4>Call Us</h4>
+                <p>+1 (555) 234-5678</p>
+              </div>
+            </div>
+            <div class="contact__info-card">
+              <div class="contact__info-icon">📍</div>
+              <div class="contact__info-text">
+                <h4>Visit Us</h4>
+                <p>123 Business Ave, Suite 400<br>San Francisco, CA 94102</p>
+              </div>
+            </div>
+            <div class="contact__info-card">
+              <div class="contact__info-icon">💬</div>
+              <div class="contact__info-text">
+                <h4>Live Chat</h4>
+                <p>Available Mon-Fri, 9AM–6PM PST</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact__form reveal">
+            <form id="contactForm" onsubmit="handleContactSubmit(event)">
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="contactName">Full Name</label>
+                  <input class="form__input" type="text" id="contactName" placeholder="John Doe" required>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="contactEmail">Email</label>
+                  <input class="form__input" type="email" id="contactEmail" placeholder="john@company.com" required>
+                </div>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="contactSubject">Subject</label>
+                <select class="form__select" id="contactSubject">
+                  <option>General Inquiry</option>
+                  <option>Request a Demo</option>
+                  <option>Pricing Information</option>
+                  <option>Technical Support</option>
+                  <option>Partnership</option>
+                </select>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="contactMessage">Message</label>
+                <textarea class="form__textarea" id="contactMessage" placeholder="Tell us how we can help..." required></textarea>
+              </div>
+              <button class="btn btn--primary btn--lg" type="submit" style="width:100%;justify-content:center;">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <h3>📋 VisitFlow</h3>
+            <p>The smart way to manage corporate visitors and meetings. Streamline scheduling, approvals, and summaries in one platform.</p>
+          </div>
+          <div class="footer__col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Integrations</a></li>
+              <li><a href="#">API Docs</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+              <li><a href="#">GDPR</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2026 VisitFlow. All rights reserved.</span>
+          <span>Built with ❤️ for modern companies</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ========== LOGIN / SIGNUP MODAL ========== -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal()" id="modalCloseBtn">✕</button>
+      <div class="modal__header">
+        <div class="modal__logo">📋</div>
+        <h2 class="modal__title">Welcome to VisitFlow</h2>
+        <p class="modal__subtitle">Sign in to manage your meetings</p>
+      </div>
+      <div class="modal__tabs">
+        <button class="modal__tab active" id="loginTab" onclick="switchTab('login')">Sign In</button>
+        <button class="modal__tab" id="signupTab" onclick="switchTab('signup')">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form class="modal__form active" id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form__group">
+          <label class="form__label" for="loginEmail">Email Address</label>
+          <input class="form__input" type="email" id="loginEmail" placeholder="you@company.com" required>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="loginPassword">Password</label>
+          <input class="form__input" type="password" id="loginPassword" placeholder="••••••••" required>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--sp-md);">
+          <label style="font-size:.8rem;display:flex;align-items:center;gap:6px;color:var(--c-text-secondary);">
+            <input type="checkbox" checked> Remember me
+          </label>
+          <a href="#" style="font-size:.8rem;color:var(--c-accent);font-weight:600;">Forgot password?</a>
+        </div>
+        <button class="btn btn--primary btn--lg" type="submit" style="width:100%;justify-content:center;">Sign In</button>
+        <div class="modal__divider">or continue with</div>
+        <div style="display:flex;gap:var(--sp-sm);">
+          <button type="button" class="btn btn--outline" style="flex:1;justify-content:center;" onclick="handleSocialLogin('Google')">🔵 Google</button>
+          <button type="button" class="btn btn--outline" style="flex:1;justify-content:center;" onclick="handleSocialLogin('Microsoft')">🟦 Microsoft</button>
+        </div>
+      </form>
+
+      <!-- Signup Form -->
+      <form class="modal__form" id="signupForm" onsubmit="handleSignup(event)">
+        <div class="form__row">
+          <div class="form__group">
+            <label class="form__label" for="signupName">Full Name</label>
+            <input class="form__input" type="text" id="signupName" placeholder="John Doe" required>
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="signupCompany">Company</label>
+            <input class="form__input" type="text" id="signupCompany" placeholder="Acme Corp" required>
+          </div>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="signupEmail">Email Address</label>
+          <input class="form__input" type="email" id="signupEmail" placeholder="you@company.com" required>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="signupPassword">Password</label>
+          <input class="form__input" type="password" id="signupPassword" placeholder="Min. 8 characters" required minlength="8">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="signupRole">Role</label>
+          <select class="form__select" id="signupRole">
+            <option value="visitor">Visitor</option>
+            <option value="company_admin">Company Admin</option>
+          </select>
+        </div>
+        <button class="btn btn--primary btn--lg" type="submit" style="width:100%;justify-content:center;">Create Account</button>
+        <div class="modal__footer">
+          By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== DASHBOARD APP ========== -->
+  <div class="app" id="dashboardApp">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__header">
+        <span class="nav__logo-icon" style="width:32px;height:32px;font-size:.9rem;">📋</span>
+        <span class="sidebar__logo">VisitFlow</span>
+      </div>
+      <nav class="sidebar__nav">
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Main</div>
+          <button class="sidebar__item active" data-page="dashboard" onclick="switchPage('dashboard')">
+            <span class="sidebar__item-icon">📊</span> Dashboard
+          </button>
+          <button class="sidebar__item" data-page="schedule" onclick="switchPage('schedule')">
+            <span class="sidebar__item-icon">📅</span> Schedule Meeting
+          </button>
+          <button class="sidebar__item" data-page="slots" onclick="switchPage('slots')">
+            <span class="sidebar__item-icon">🕐</span> Available Slots
+          </button>
+        </div>
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Management</div>
+          <button class="sidebar__item" data-page="approvals" onclick="switchPage('approvals')">
+            <span class="sidebar__item-icon">✅</span> Approvals
+            <span class="sidebar__item-badge" id="approvalBadge">3</span>
+          </button>
+          <button class="sidebar__item" data-page="meetings" onclick="switchPage('meetings')">
+            <span class="sidebar__item-icon">📋</span> All Meetings
+          </button>
+          <button class="sidebar__item" data-page="summary" onclick="switchPage('summary')">
+            <span class="sidebar__item-icon">📝</span> Meeting Summaries
+          </button>
+          <button class="sidebar__item" data-page="history" onclick="switchPage('history')">
+            <span class="sidebar__item-icon">🗂️</span> History
+          </button>
+        </div>
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Other</div>
+          <button class="sidebar__item" data-page="settings" onclick="switchPage('settings')">
+            <span class="sidebar__item-icon">⚙️</span> Settings
+          </button>
+        </div>
+      </nav>
+      <div class="sidebar__footer">
+        <div class="sidebar__user">
+          <div class="sidebar__avatar" id="sidebarAvatar">JD</div>
+          <div class="sidebar__user-info">
+            <div class="sidebar__user-name" id="sidebarName">John Doe</div>
+            <div class="sidebar__user-role" id="sidebarRole">Company Admin</div>
+          </div>
+          <button class="btn btn--icon" onclick="handleLogout()" title="Sign Out" style="color:var(--c-text-muted);font-size:1rem;">⏻</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main">
+      <header class="main__header">
+        <button class="btn btn--icon" id="sidebarToggle" onclick="toggleSidebar()" style="display:none;font-size:1.2rem;">☰</button>
+        <div class="main__search">
+          <span>🔍</span>
+          <input type="text" placeholder="Search meetings, visitors, rooms..." id="globalSearch">
+        </div>
+        <div class="main__header-actions" style="position:relative;">
+          <button class="main__notif" id="notifBtn" onclick="toggleNotifications()">
+            🔔
+            <span class="main__notif-dot"></span>
+          </button>
+          <!-- Notifications Panel -->
+          <div class="notif-panel" id="notifPanel">
+            <div class="notif-panel__header">
+              <span class="notif-panel__title">Notifications</span>
+              <button class="btn btn--sm btn--ghost" onclick="clearNotifications()">Mark all read</button>
+            </div>
+            <div id="notifList">
+              <div class="notif-item">
+                <div class="notif-item__icon" style="background:var(--c-success-bg);color:var(--c-success);">✓</div>
+                <div>
+                  <div class="notif-item__text"><strong>Meeting Approved</strong> — Your request for Apr 22 has been confirmed.</div>
+                  <div class="notif-item__time">2 minutes ago</div>
+                </div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-item__icon" style="background:var(--c-warning-bg);color:var(--c-warning);">⚠</div>
+                <div>
+                  <div class="notif-item__text"><strong>Shift Suggested</strong> — Room B at 2 PM is recommended instead.</div>
+                  <div class="notif-item__time">15 minutes ago</div>
+                </div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-item__icon" style="background:var(--c-info-bg);color:var(--c-info);">📅</div>
+                <div>
+                  <div class="notif-item__text"><strong>New Booking</strong> — Sarah Lee requested a meeting for Apr 23.</div>
+                  <div class="notif-item__time">1 hour ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar__avatar" id="headerAvatar" style="cursor:pointer;" onclick="switchPage('settings')">JD</div>
+        </div>
+      </header>
+
+      <div class="main__content">
+
+        <!-- ===== DASHBOARD PAGE ===== -->
+        <div class="page active" id="page-dashboard">
+          <div class="main__page-header" style="display:flex;align-items:center;justify-content:space-between;">
+            <div>
+              <h1 class="main__page-title">Dashboard</h1>
+              <p class="main__page-subtitle">Welcome back! Here's your meeting overview.</p>
+            </div>
+            <button class="btn btn--primary" onclick="switchPage('schedule')">+ New Meeting</button>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-card__header">
+                <div class="stat-card__icon" style="background:var(--c-accent-light);color:var(--c-accent);">📅</div>
+                <span class="stat-card__trend stat-card__trend--up">↑ 12%</span>
+              </div>
+              <div class="stat-card__value" id="statTotal">24</div>
+              <div class="stat-card__label">Total Meetings</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__header">
+                <div class="stat-card__icon" style="background:var(--c-success-bg);color:var(--c-success);">✅</div>
+                <span class="stat-card__trend stat-card__trend--up">↑ 8%</span>
+              </div>
+              <div class="stat-card__value" id="statConfirmed">18</div>
+              <div class="stat-card__label">Confirmed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__header">
+                <div class="stat-card__icon" style="background:var(--c-warning-bg);color:var(--c-warning);">⏳</div>
+                <span class="stat-card__trend stat-card__trend--down">3 pending</span>
+              </div>
+              <div class="stat-card__value" id="statPending">3</div>
+              <div class="stat-card__label">Pending Approval</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__header">
+                <div class="stat-card__icon" style="background:#f3e8ff;color:#7c3aed;">🕐</div>
+              </div>
+              <div class="stat-card__value">5</div>
+              <div class="stat-card__label">Available Slots Today</div>
+            </div>
+          </div>
+
+          <div class="dash-grid">
+            <!-- Upcoming Meetings -->
+            <div class="dash-panel">
+              <div class="dash-panel__header">
+                <h3 class="dash-panel__title">Today's Meetings</h3>
+                <button class="btn btn--sm btn--secondary" onclick="switchPage('meetings')">View All</button>
+              </div>
+              <div class="dash-panel__body" id="todayMeetings">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+
+            <!-- Mini Calendar -->
+            <div class="dash-panel">
+              <div class="dash-panel__body">
+                <div class="calendar-mini" id="miniCalendar">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SCHEDULE MEETING PAGE ===== -->
+        <div class="page" id="page-schedule">
+          <div class="main__page-header">
+            <h1 class="main__page-title">Schedule a Meeting</h1>
+            <p class="main__page-subtitle">Request a new meeting slot. First-come first-served.</p>
+          </div>
+          <div class="dash-panel">
+            <div class="dash-panel__body">
+              <form id="scheduleForm" onsubmit="handleScheduleMeeting(event)">
+                <div class="schedule-form__grid">
+                  <div class="form__group">
+                    <label class="form__label" for="meetTitle">Meeting Title</label>
+                    <input class="form__input" type="text" id="meetTitle" placeholder="e.g. Q2 Budget Review" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="meetCompany">Company / Client</label>
+                    <input class="form__input" type="text" id="meetCompany" placeholder="e.g. Acme Corp">
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="meetDate">Preferred Date</label>
+                    <input class="form__input" type="date" id="meetDate" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="meetTime">Preferred Time</label>
+                    <select class="form__select" id="meetTime" required>
+                      <option value="">Select a time slot</option>
+                      <option value="09:00">09:00 AM</option>
+                      <option value="09:30">09:30 AM</option>
+                      <option value="10:00">10:00 AM</option>
+                      <option value="10:30">10:30 AM</option>
+                      <option value="11:00">11:00 AM</option>
+                      <option value="11:30">11:30 AM</option>
+                      <option value="12:00">12:00 PM</option>
+                      <option value="13:00">01:00 PM</option>
+                      <option value="13:30">01:30 PM</option>
+                      <option value="14:00">02:00 PM</option>
+                      <option value="14:30">02:30 PM</option>
+                      <option value="15:00">03:00 PM</option>
+                      <option value="15:30">03:30 PM</option>
+                      <option value="16:00">04:00 PM</option>
+                      <option value="16:30">04:30 PM</option>
+                      <option value="17:00">05:00 PM</option>
+                    </select>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="meetDuration">Duration</label>
+                    <select class="form__select" id="meetDuration">
+                      <option value="30">30 minutes</option>
+                      <option value="60" selected>1 hour</option>
+                      <option value="90">1.5 hours</option>
+                      <option value="120">2 hours</option>
+                    </select>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="meetRoom">Preferred Room</label>
+                    <select class="form__select" id="meetRoom">
+                      <option value="any">Any Available</option>
+                      <option value="room-a">Room A — Conference (12 seats)</option>
+                      <option value="room-b">Room B — Boardroom (8 seats)</option>
+                      <option value="room-c">Room C — Small (4 seats)</option>
+                      <option value="room-d">Room D — Executive (6 seats)</option>
+                    </select>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="meetAttendees">Attendees (comma-separated emails)</label>
+                    <input class="form__input" type="text" id="meetAttendees" placeholder="a@corp.com, b@corp.com">
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="meetPriority">Priority</label>
+                    <select class="form__select" id="meetPriority">
+                      <option value="normal">Normal</option>
+                      <option value="high">High</option>
+                      <option value="urgent">Urgent</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="meetAgenda">Agenda / Notes</label>
+                  <textarea class="form__textarea" id="meetAgenda" placeholder="Briefly describe the meeting purpose and agenda items..."></textarea>
+                </div>
+                <div style="display:flex;gap:var(--sp-md);margin-top:var(--sp-md);">
+                  <button class="btn btn--primary btn--lg" type="submit">Submit Booking Request</button>
+                  <button class="btn btn--outline btn--lg" type="reset">Clear Form</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== AVAILABLE SLOTS PAGE ===== -->
+        <div class="page" id="page-slots">
+          <div class="main__page-header" style="display:flex;align-items:center;justify-content:space-between;">
+            <div>
+              <h1 class="main__page-title">Available Slots</h1>
+              <p class="main__page-subtitle">Browse open time slots and book instantly.</p>
+            </div>
+            <div style="display:flex;gap:var(--sp-sm);align-items:center;">
+              <label class="form__label" style="margin:0;">Date:</label>
+              <input class="form__input" type="date" id="slotDatePicker" style="width:180px;" onchange="renderSlots()">
+            </div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-panel">
+              <div class="dash-panel__header">
+                <h3 class="dash-panel__title">Time Slots</h3>
+                <div style="display:flex;gap:var(--sp-sm);">
+                  <span class="chip chip--green">● Available</span>
+                  <span class="chip chip--blue">● Booked</span>
+                </div>
+              </div>
+              <div class="dash-panel__body">
+                <div class="slot-grid" id="slotGrid">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="dash-panel">
+                <div class="dash-panel__header">
+                  <h3 class="dash-panel__title">Room Status</h3>
+                </div>
+                <div class="dash-panel__body" id="roomStatus">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+              <div class="dash-panel" style="margin-top:var(--sp-md);">
+                <div class="dash-panel__header">
+                  <h3 class="dash-panel__title">Quick Book</h3>
+                </div>
+                <div class="dash-panel__body">
+                  <p style="font-size:.85rem;color:var(--c-text-secondary);margin-bottom:var(--sp-md);">Select an available slot above, then fill in basic details to book instantly.</p>
+                  <div class="form__group">
+                    <label class="form__label" for="quickTitle">Meeting Title</label>
+                    <input class="form__input" type="text" id="quickTitle" placeholder="Brief title">
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="quickVisitor">Visitor Name</label>
+                    <input class="form__input" type="text" id="quickVisitor" placeholder="Visitor name">
+                  </div>
+                  <button class="btn btn--primary" style="width:100%;justify-content:center;" onclick="quickBook()" id="quickBookBtn">Book Selected Slot</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== APPROVALS PAGE ===== -->
+        <div class="page" id="page-approvals">
+          <div class="main__page-header">
+            <h1 class="main__page-title">Pending Approvals</h1>
+            <p class="main__page-subtitle">Review and approve or decline booking requests.</p>
+          </div>
+          <div class="dash-panel">
+            <div class="dash-panel__header">
+              <h3 class="dash-panel__title">Requests (<span id="approvalCount">3</span>)</h3>
+              <div style="display:flex;gap:var(--sp-sm);">
+                <button class="btn btn--sm btn--secondary" onclick="approveAll()">Approve All</button>
+              </div>
+            </div>
+            <div class="dash-panel__body" id="approvalsList">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== ALL MEETINGS PAGE ===== -->
+        <div class="page" id="page-meetings">
+          <div class="main__page-header" style="display:flex;align-items:center;justify-content:space-between;">
+            <div>
+              <h1 class="main__page-title">All Meetings</h1>
+              <p class="main__page-subtitle">Complete list of scheduled and past meetings.</p>
+            </div>
+            <div style="display:flex;gap:var(--sp-sm);">
+              <select class="form__select" id="meetingFilter" onchange="renderMeetings()" style="width:160px;">
+                <option value="all">All Status</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="pending">Pending</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+          </div>
+          <div class="dash-panel">
+            <div class="dash-panel__body" id="meetingsList">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== MEETING SUMMARIES PAGE ===== -->
+        <div class="page" id="page-summary">
+          <div class="main__page-header">
+            <h1 class="main__page-title">Meeting Summaries</h1>
+            <p class="main__page-subtitle">Review key points and action items from past meetings.</p>
+          </div>
+          <div id="summariesList">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- ===== HISTORY PAGE ===== -->
+        <div class="page" id="page-history">
+          <div class="main__page-header" style="display:flex;align-items:center;justify-content:space-between;">
+            <div>
+              <h1 class="main__page-title">Meeting History</h1>
+              <p class="main__page-subtitle">Full audit trail of all meeting activities.</p>
+            </div>
+            <button class="btn btn--outline" onclick="exportHistory()">📥 Export CSV</button>
+          </div>
+          <div class="dash-panel">
+            <div class="dash-panel__body">
+              <table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+                <thead>
+                  <tr style="border-bottom:2px solid var(--c-border);text-align:left;">
+                    <th style="padding:10px 12px;font-weight:700;color:var(--c-text-muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;">Date</th>
+                    <th style="padding:10px 12px;font-weight:700;color:var(--c-text-muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;">Meeting</th>
+                    <th style="padding:10px 12px;font-weight:700;color:var(--c-text-muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;">Company</th>
+                    <th style="padding:10px 12px;font-weight:700;color:var(--c-text-muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;">Room</th>
+                    <th style="padding:10px 12px;font-weight:700;color:var(--c-text-muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;">Status</th>
+                    <th style="padding:10px 12px;font-weight:700;color:var(--c-text-muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SETTINGS PAGE ===== -->
+        <div class="page" id="page-settings">
+          <div class="main__page-header">
+            <h1 class="main__page-title">Settings</h1>
+            <p class="main__page-subtitle">Manage your account and preferences.</p>
+          </div>
+          <div class="dash-grid">
+            <div>
+              <div class="dash-panel">
+                <div class="dash-panel__header">
+                  <h3 class="dash-panel__title">Profile Information</h3>
+                </div>
+                <div class="dash-panel__body">
+                  <div class="form__row">
+                    <div class="form__group">
+                      <label class="form__label" for="settingsName">Full Name</label>
+                      <input class="form__input" type="text" id="settingsName" value="John Doe">
+                    </div>
+                    <div class="form__group">
+                      <label class="form__label" for="settingsEmail">Email</label>
+                      <input class="form__input" type="email" id="settingsEmail" value="john@acmecorp.com">
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="form__group">
+                      <label class="form__label" for="settingsCompany">Company</label>
+                      <input class="form__input" type="text" id="settingsCompany" value="Acme Corp">
+                    </div>
+                    <div class="form__group">
+                      <label class="form__label" for="settingsPhone">Phone</label>
+                      <input class="form__input" type="text" id="settingsPhone" value="+1 555-123-4567">
+                    </div>
+                  </div>
+                  <button class="btn btn--primary" style="margin-top:var(--sp-md);" onclick="showToast('Profile updated successfully!','success')">Save Changes</button>
+                </div>
+              </div>
+              <div class="dash-panel">
+                <div class="dash-panel__header">
+                  <h3 class="dash-panel__title">Meeting Preferences</h3>
+                </div>
+                <div class="dash-panel__body">
+                  <div class="form__group">
+                    <label class="form__label" for="settingsTimezone">Timezone</label>
+                    <select class="form__select" id="settingsTimezone">
+                      <option>Asia/Kolkata (IST, UTC+5:30)</option>
+                      <option>America/New_York (EST, UTC-5)</option>
+                      <option>Europe/London (GMT, UTC+0)</option>
+                      <option>America/Los_Angeles (PST, UTC-8)</option>
+                    </select>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="settingsDefaultDuration">Default Meeting Duration</label>
+                    <select class="form__select" id="settingsDefaultDuration">
+                      <option>30 minutes</option>
+                      <option selected>1 hour</option>
+                      <option>1.5 hours</option>
+                    </select>
+                  </div>
+                  <div class="form__group">
+                    <label style="font-size:.85rem;display:flex;align-items:center;gap:8px;cursor:pointer;">
+                      <input type="checkbox" checked> Email notifications for booking updates
+                    </label>
+                  </div>
+                  <div class="form__group">
+                    <label style="font-size:.85rem;display:flex;align-items:center;gap:8px;cursor:pointer;">
+                      <input type="checkbox" checked> Reminder 15 minutes before meetings
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="dash-panel">
+                <div class="dash-panel__header">
+                  <h3 class="dash-panel__title">Company Settings</h3>
+                </div>
+                <div class="dash-panel__body">
+                  <div class="form__group">
+                    <label class="form__label">Booking Hours</label>
+                    <div class="form__row">
+                      <input class="form__input" type="time" value="09:00">
+                      <input class="form__input" type="time" value="18:00">
+                    </div>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label">Auto-approve bookings</label>
+                    <select class="form__select">
+                      <option>Require manual approval</option>
+                      <option>Auto-approve known visitors</option>
+                      <option>Auto-approve all</option>
+                    </select>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label">Maximum bookings per day</label>
+                    <input class="form__input" type="number" value="15" min="1" max="50">
+                  </div>
+                </div>
+              </div>
+              <div class="dash-panel">
+                <div class="dash-panel__header">
+                  <h3 class="dash-panel__title">Danger Zone</h3>
+                </div>
+                <div class="dash-panel__body">
+                  <p style="font-size:.85rem;color:var(--c-text-secondary);margin-bottom:var(--sp-md);">These actions are permanent and cannot be undone.</p>
+                  <button class="btn btn--outline" style="border-color:var(--c-danger);color:var(--c-danger);width:100%;justify-content:center;" onclick="showToast('This feature is not available in demo mode.','info')">Delete Account</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SHIFT SUGGESTION MODAL ========== -->
+  <div class="modal-overlay" id="shiftModal">
+    <div class="modal" style="width:520px;">
+      <button class="modal__close" onclick="closeShiftModal()">✕</button>
+      <div class="modal__header">
+        <div class="modal__logo" style="background:var(--c-warning);">🔄</div>
+        <h2 class="modal__title">Suggest a Shift</h2>
+        <p class="modal__subtitle" id="shiftSubtitle">The requested slot is busy. Here are alternatives:</p>
+      </div>
+      <div class="shift-modal__slots" id="shiftSlots">
+        <!-- Populated by JS -->
+      </div>
+      <div style="display:flex;gap:var(--sp-sm);margin-top:var(--sp-md);">
+        <button class="btn btn--primary btn--lg" style="flex:1;justify-content:center;" onclick="confirmShift()">Suggest This Slot</button>
+        <button class="btn btn--outline btn--lg" style="flex:1;justify-content:center;" onclick="closeShiftModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
